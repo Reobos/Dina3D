@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/Dina3D/',
+  base: "./",
   build: {
     outDir: 'dist'
   },
