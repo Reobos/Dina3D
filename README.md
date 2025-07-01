@@ -43,5 +43,15 @@ const my_params = {
 const my_glb = generateGlbCard(my_params);
 ```
 
-4. Add the card to the main folder
+4. Add the card to the main app html
 
+```js
+document.querySelector('#app').innerHTML = `
+  <div class="card-container">
+    ${jay_glb}
+    ${fish_house_glb}
+    ${my_glb}
+  </div>
+```
+
+5. Push changes and request to merge the fork!
