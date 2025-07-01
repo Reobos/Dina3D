@@ -17,7 +17,7 @@ npm start dev
 git clone git@github.com:<your username>/Dina3D.git
 ```
 
-2. Copy your GLB file assets to folder [assets/](assets/). For example `assets/my_3d_scan.glb`
+2. Copy your GLB file assets to folder [public/assets/](public/assets/). For example `public/assets/my_3d_scan.glb`
 
 3. In the [src/main.js](src/main.js) file. You can see the first entry
 
