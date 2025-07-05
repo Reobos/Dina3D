@@ -42,11 +42,6 @@ h1 {
   text-align: center;
 }
 
-.card {
-  padding: 2em;
-  flex-direction: row;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -88,8 +83,9 @@ body {
 
 .card-container {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   padding: 0;
+  padding-top: 2.2em;
 }
 
 .card {
@@ -101,6 +97,7 @@ body {
   border-radius: 6px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  min-width: 160px;
 }
 
 model-viewer {
@@ -139,4 +136,45 @@ footer {
   text-align: center;
   font-style: italic;
   line-height: 1.5em;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #242424;
+  color: #42f9b9;
+  padding: 1em 2em;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+}
+
+.github-link {
+  color: #5acfa8;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.4em 1em;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  background: rgba(66, 249, 185, 0.08);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.github-link:hover {
+  color: #242424;
+  background: #42f9b9;
+  text-decoration: underline;
+}
+
+.top-title {
+  padding-left: 0.5em;
+  margin: 0;
+  font-size: 2.2em;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(66, 249, 185, 0.15);
 }
