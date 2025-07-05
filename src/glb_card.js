@@ -2,6 +2,7 @@ export function generateGlbCard(params) {
     const posterAttr = params.poster ? `poster="${params.poster}"` : '';
     const usdzAttr = params.usdz ? `ar ios-src="${params.usdz}"` : '';
     const author = params.author ? `<span>by ${params.author}</span>` : '';
+    const preview = params.preview ? `` : 'reveal="manual"';
 
     return `
     <div class="card">
@@ -9,6 +10,7 @@ export function generateGlbCard(params) {
             id="${params.id}"
             src="${params.source}"
             alt="${params.description}"
+            ${preview}
             ${posterAttr}
             ${usdzAttr}
             shadow-intensity="1"
