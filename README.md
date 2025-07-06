@@ -38,7 +38,7 @@ rsync -avz dist/ dinacam@192.168.8.174:/var/www/html/dina3d/
 3. Ensure nginx is serving the files from the correct directory. You may need to reload nginx:
 
 ```sh
-ssh user@192.168.8.174 'sudo systemctl reload nginx'
+ssh dinacam@192.168.8.174 'sudo systemctl reload nginx'
 ```
 
 ## Contributing

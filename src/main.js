@@ -119,6 +119,86 @@ const offering_params = {
 };
 const offering_glb = generateGlbCard(offering_params);
 
+const big_gulp_coral_params = {
+  id: "big_gulp_coral",
+  preview: true,
+  source: "assets/big_gulp_coral.glb",
+  poster: "assets/poster_big_gulp_coral.png",
+  description: "Big Gulp Coral",
+  title: "Big Gulp Coral"
+};
+const big_gulp_coral_glb = generateGlbCard(big_gulp_coral_params);
+
+const big_gulp_nearby_rocks_params = {
+  id: "big_gulp_nearby_rocks",
+  preview: true,
+  source: "assets/big_gulp_nearby_rocks.glb",
+  poster: "assets/poster_big_gulp_nearby_rocks.png",
+  description: "Big Gulp Rocks",
+  title: "Big Gulp Rocks"
+};
+const big_gulp_nearby_rocks_glb = generateGlbCard(big_gulp_nearby_rocks_params);
+
+const coral_cliff_params = {
+  id: "coral_cliff",
+  preview: true,
+  source: "assets/coral_cliff.glb",
+  poster: "assets/poster_coral_cliff.png",
+  description: "Coral Cliff",
+  title: "Coral Cliff"
+};
+const coral_cliff_glb = generateGlbCard(coral_cliff_params);
+
+const knobble_hog_coral_params = {
+  id: "knobble_hog_coral",
+  preview: true,
+  source: "assets/knobble_hog_coral.glb",
+  poster: "assets/poster_knobble_hog_coral.png",
+  description: "Knobble Hog",
+  title: "Knobble Hog"
+};
+const knobble_hog_coral_glb = generateGlbCard(knobble_hog_coral_params);
+
+const knobble_hog_nearby_params = {
+  id: "knobble_hog_nearby",
+  preview: true,
+  source: "assets/knobble_hog_nearby.glb",
+  poster: "assets/poster_knobble_hog_nearby.png",
+  description: "Knobble Nearby",
+  title: "Knobble Nearby"
+};
+const knobble_hog_nearby_glb = generateGlbCard(knobble_hog_nearby_params);
+
+const pork_belly_baby_params = {
+  id: "pork_belly_baby",
+  preview: true,
+  source: "assets/pork_belly_baby.glb",
+  poster: "assets/poster_pork_belly_baby.png",
+  description: "Pork Belly Baby",
+  title: "Pork Belly Baby"
+};
+const pork_belly_baby_glb = generateGlbCard(pork_belly_baby_params);
+
+const table_params = {
+  id: "table",
+  preview: true,
+  source: "assets/table.glb",
+  poster: "assets/poster_table.png",
+  description: "Table",
+  title: "Table"
+};
+const table_glb = generateGlbCard(table_params);
+
+const tables_near_buoy_params = {
+  id: "tables_near_buoy",
+  preview: true,
+  source: "assets/tables_near_buoy.glb",
+  poster: "assets/poster_tables_near_buoy.png",
+  description: "Tables Near Buoy",
+  title: "Tables Near Buoy"
+};
+const tables_near_buoy_glb = generateGlbCard(tables_near_buoy_params);
+
 document.querySelector('#app').innerHTML = `
   ${header}
   <div class="card-container">
@@ -126,6 +206,14 @@ document.querySelector('#app').innerHTML = `
     ${green_coral_glb}
     ${bell_glb}
     ${beautiful_glb}
+    ${big_gulp_coral_glb}
+    ${big_gulp_nearby_rocks_glb}
+    ${coral_cliff_glb}
+    ${knobble_hog_coral_glb}
+    ${knobble_hog_nearby_glb}
+    ${pork_belly_baby_glb}
+    ${table_glb}
+    ${tables_near_buoy_glb}
     ${fish_house_glb}
     ${tendrils_glb}
     ${offering_glb}
