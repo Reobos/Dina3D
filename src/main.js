@@ -199,9 +199,121 @@ const tables_near_buoy_params = {
 };
 const tables_near_buoy_glb = generateGlbCard(tables_near_buoy_params);
 
+const mask_params = {
+  id: "mask_FILE250630-121332F-092430F",
+  preview: true,
+  source: "assets/mask_FILE250630-121332F.glb",
+  poster: "assets/poster_mask_FILE250630-121332F.png",
+  description: "Concrete Turtle",
+  title: "Concrete Turtle"
+};
+const mask_glb = generateGlbCard(mask_params);
+
+const archway_params = {
+  id: "archway_FILE250630-092430F",
+  preview: true,
+  source: "assets/archway_FILE250630-092430F.glb",
+  poster: "assets/poster_archway_FILE250630-092430F.png",
+  description: "Archway",
+  title: "Archway"
+};
+const archway_glb = generateGlbCard(archway_params);
+
+const big_brain_params = {
+  id: "big-brain_P6300418",
+  preview: true,
+  source: "assets/big-brain_P6300418.glb",
+  poster: "assets/poster_big-brain_P6300418.png",
+  description: "Big Brain",
+  title: "Big Brain"
+};
+const big_brain_glb = generateGlbCard(big_brain_params);
+
+const block_arch_params = {
+  id: "block-arch_P6300303",
+  preview: true,
+  source: "assets/block-arch_P6300303.glb",
+  poster: "assets/poster_block-arch_P6300303.png",
+  description: "Block Arch",
+  title: "Block Arch"
+};
+const block_arch_glb = generateGlbCard(block_arch_params);
+
+const brain_n_rocks_params = {
+  id: "brain-n-rocks_FILE250630-094721F",
+  preview: true,
+  source: "assets/brain-n-rocks_FILE250630-094721F.glb",
+  poster: "assets/poster_brain-n-rocks_FILE250630-094721F.png",
+  description: "Brain 'n' Rocks",
+  title: "Brain 'n' Rocks"
+};
+const brain_n_rocks_glb = generateGlbCard(brain_n_rocks_params);
+
+
+const columnar_coral_params = {
+  id: "columnar-coral_FILE250704-094129F",
+  preview: true,
+  source: "assets/columnar-coral_FILE250704-094129F.glb",
+  poster: "assets/poster_columnar-coral_FILE250704-094129F.png",
+  description: "Columnar Coral",
+  title: "Columnar Coral"
+};
+const columnar_coral_glb = generateGlbCard(columnar_coral_params);
+
+const coral_variety_params = {
+  id: "coral-variety_GH010101",
+  preview: true,
+  source: "assets/coral-variety_GH010101.glb",
+  poster: "assets/poster_coral-variety_GH010101.png",
+  description: "Coral Variety 1",
+  title: "Coral Variety 1"
+};
+const coral_variety_glb = generateGlbCard(coral_variety_params);
+
+
+const coral_variety_2_params = {
+  id: "coral-variety-2_P6300279",
+  preview: true,
+  source: "assets/coral-variety-2_P6300279.glb",
+  poster: "assets/poster_coral-variety-2_P6300279.png",
+  description: "Coral Variety 2",
+  title: "Coral Variety 2"
+};
+const coral_variety_2_glb = generateGlbCard(coral_variety_2_params);
+
+const cucumber_mound_params = {
+  id: "cucumber-mound_FILE250630-094443F",
+  preview: true,
+  source: "assets/cucumber-mound_FILE250630-094443F.glb",
+  poster: "assets/poster_cucumber-mound_FILE250630-094443F.png",
+  description: "Cucumber Mound",
+  title: "Cucumber Mound"
+};
+const cucumber_mound_glb = generateGlbCard(cucumber_mound_params);
+
+const white_coral_params = {
+  id: "white-coral_FILE250630-120534F",
+  preview: true,
+  source: "assets/white-coral_FILE250630-120534F.glb",
+  poster: "assets/poster_white-coral_FILE250630-120534F.png",
+  description: "White Coral",
+  title: "White Coral"
+};
+const white_coral_glb = generateGlbCard(white_coral_params);
+
 document.querySelector('#app').innerHTML = `
   ${header}
   <div class="card-container">
+    ${white_coral_glb}
+    ${cucumber_mound_glb}
+    ${coral_variety_2_glb}
+    ${coral_variety_glb}
+    ${columnar_coral_glb}
+    ${brain_n_rocks_glb}
+    ${block_arch_glb}
+    ${big_brain_glb}
+    ${archway_glb}
+    ${mask_glb}
     ${small_coral_glb}
     ${green_coral_glb}
     ${bell_glb}
