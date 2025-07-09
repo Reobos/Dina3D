@@ -1,18 +1,30 @@
 // build-models.js
-import fs   from 'fs';
+import fs from 'fs';
 import path from 'path';
 import puppeteer from 'puppeteer';
 
-const ASSETS = path.resolve(process.cwd(), 'public/assets');
-const OUT_SRC = path.resolve(process.cwd(), 'src', 'glb_data.js');
+// Directories
+const MODELS_DIR   = path.resolve(process.cwd(), 'public/assets/models');
+const POSTERS_DIR  = path.resolve(process.cwd(), 'public/assets/posters');
+const METADATA_DIR = path.resolve(process.cwd(), 'public/assets/metadata');
+const OUT_SRC      = path.resolve(process.cwd(), 'src', 'glb_data.js');
 
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+// Simple sleep helper
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
-const mvUmd = fs.readFileSync(
-  path.join(process.cwd(),
-            'node_modules/@google/model-viewer/dist/model-viewer.min.js'),
+// Read the ES module build of model-viewer
+const mvESM = fs.readFileSync(
+  path.join(
+    process.cwd(),
+    'node_modules/@google/model-viewer/dist/model-viewer.min.js'
+  ),
   'utf8'
 );
+
+// Ensure asset dirs exist
+[MODELS_DIR, POSTERS_DIR, METADATA_DIR].forEach(dir => {
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+});
 
 async function generateThumbnail(glbFile, posterFile) {
   console.log(`\n[thumb] Generating ${posterFile} from ${glbFile}`);
@@ -22,39 +34,39 @@ async function generateThumbnail(glbFile, posterFile) {
   const base64 = glb.toString('base64');
   const dataUri = `data:model/gltf-binary;base64,${base64}`;
 
-  // 1) launch browser
   console.log('[thumb] → launching browser…');
   const browser = await puppeteer.launch({
     headless: true,
-    executablePath: process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    executablePath:
+      process.env.CHROME_PATH ||
+      '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
   console.log('[thumb] ✓ browser launched');
 
   const page = await browser.newPage();
-
-  // 2) pipe page console into our logs
   page.on('console', msg => console.log(`[PAGE] ${msg.text()}`));
   page.on('pageerror', err => console.error('[PAGE ERROR]', err));
   page.on('requestfailed', req =>
     console.warn(`[PAGE REQUEST FAILED] ${req.url()} – ${req.failure()?.errorText}`)
   );
 
-  // 3) set content & wait for the <model-viewer> tag to exist
   console.log('[thumb] → setting HTML content…');
   const html = `
-    <html><body style="margin:0">
-      <script type="module">
-      ${mvUmd}
+<html>
+  <body style="margin:0">
+    <script type="module">
+${mvESM}
     </script>
-      <model-viewer
-        style="display:block; width:512px; height:512px"
-        src="${dataUri}"
-        auto-rotate
-        camera-controls
-      ></model-viewer>
-    </body></html>
-  `;
+    <model-viewer
+      style="display:block; width:512px; height:512px"
+      src="${dataUri}"
+      auto-rotate
+      camera-controls
+    ></model-viewer>
+  </body>
+</html>
+`;
 
   await page.setContent(html, { waitUntil: 'networkidle2' });
   await page.waitForSelector('model-viewer', { timeout: 60000 });
@@ -65,6 +77,7 @@ async function generateThumbnail(glbFile, posterFile) {
       'document.querySelector("model-viewer").modelComplete === true',
       { timeout: 10000 }
     );
+    console.log('[thumb] ✓ modelComplete!');
   } catch {
     console.warn('[thumb] ⚠ modelComplete timed out; waiting 5s fallback');
     await delay(5000);
@@ -75,50 +88,59 @@ async function generateThumbnail(glbFile, posterFile) {
   try {
     await mvHandle.screenshot({ path: posterFile, omitBackground: true });
   } catch (err) {
-    console.warn(`[thumb] element screenshot failed (${err.message}); using viewport`);
+    console.warn(`[thumb] element screenshot failed (${err.message}); fallback to viewport`);
     await page.screenshot({
       path: posterFile,
       clip: { x: 0, y: 0, width: 512, height: 512 },
       omitBackground: true,
     });
   }
-  console.log(`[thumb] ✓ saved poster: ${posterFile}`);
 
+  console.log(`[thumb] ✓ saved poster: ${posterFile}`);
   await browser.close();
-  console.log('[thumb] browser closed\n');
+  console.log('[thumb] browser closed');
 }
 
 async function main() {
-  const all = fs.readdirSync(ASSETS).filter(f => f.endsWith('.glb'));
+  const files = fs.readdirSync(MODELS_DIR).filter(f => f.endsWith('.glb'));
   const models = [];
 
-  for (const name of all) {
+  for (const name of files) {
     const id = path.basename(name, '.glb');
-    const src    = `assets/${name}`;
-    const poster = `assets/poster_${id}.png`;
-    const posterPath = path.join(ASSETS, `poster_${id}.png`);
+    const src = `assets/models/${name}`;
+    const posterRel = `assets/posters/poster_${id}.png`;
+    const posterPath = path.join(POSTERS_DIR, `poster_${id}.png`);
 
-    models.push({
-      id,
-      source: src,
-      poster,
-      title: id.replace(/[_-]/g, ' '),
-      description: '',
-      preview: true,
-      // you can fill in defaults for usdz, author, etc.
-    });
+    // Load or create metadata
+    const metaFile = path.join(METADATA_DIR, `${id}.json`);
+    if (!fs.existsSync(metaFile)) {
+      const def = {
+        id,
+        title: id.replace(/[_-]/g, ' '),
+        description: '',
+        preview: true,
+        author: '',
+        usdz: '',
+      };
+      fs.writeFileSync(metaFile, JSON.stringify(def, null, 2));
+      console.log(`Created metadata: ${metaFile}`);
+    }
+    const meta = JSON.parse(fs.readFileSync(metaFile, 'utf8'));
+
+    // Override source & poster
+    meta.source = src;
+    meta.poster = posterRel;
+    models.push(meta);
 
     if (!fs.existsSync(posterPath)) {
-      console.log(`  ↳ generating thumbnail for ${name}`);
       await generateThumbnail(
-        path.join(ASSETS, name),
+        path.join(MODELS_DIR, name),
         posterPath
       );
     }
   }
 
-  // write out a single JS module
-  const content = `// this file is auto-generated by build-models.js
+  const content = `// Auto-generated by build-models.js
 export const modelData = ${JSON.stringify(models, null, 2)};\n`;
   fs.writeFileSync(OUT_SRC, content);
 }
