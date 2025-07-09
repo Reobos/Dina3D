@@ -15,6 +15,7 @@ export function generateGlbCard(params) {
             ${usdzAttr}
             shadow-intensity="1"
             camera-controls
+            reveal="auto"
             auto-rotate>
         </model-viewer>
         <section class="attribution">
