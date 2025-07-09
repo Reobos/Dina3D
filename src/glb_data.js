@@ -55,7 +55,7 @@ export const modelData = [
     "title": "Big Gulp Coral",
     "description": "",
     "preview": true,
-    "author": "",
+    "author": "AOM",
     "usdz": "",
     "source": "assets/models/big_gulp_coral.glb",
     "poster": "assets/posters/poster_big_gulp_coral.png"
@@ -65,7 +65,7 @@ export const modelData = [
     "title": "Big Gulp Nearby Rocks",
     "description": "",
     "preview": true,
-    "author": "",
+    "author": "AOM",
     "usdz": "",
     "source": "assets/models/big_gulp_nearby_rocks.glb",
     "poster": "assets/posters/poster_big_gulp_nearby_rocks.png"
@@ -111,6 +111,16 @@ export const modelData = [
     "poster": "assets/posters/poster_bumps.png"
   },
   {
+    "id": "buoy_connect",
+    "title": "Buoy Connect",
+    "description": "",
+    "preview": true,
+    "author": "AOM",
+    "usdz": "",
+    "source": "assets/models/buoy_connect.glb",
+    "poster": "assets/posters/poster_buoy_connect.png"
+  },
+  {
     "id": "columnar-coral_FILE250704-094129F",
     "title": "Columnar Coral",
     "description": "",
@@ -145,7 +155,7 @@ export const modelData = [
     "title": "Coral Cliff",
     "description": "",
     "preview": true,
-    "author": "",
+    "author": "AOM",
     "usdz": "",
     "source": "assets/models/coral_cliff.glb",
     "poster": "assets/posters/poster_coral_cliff.png"
@@ -195,7 +205,7 @@ export const modelData = [
     "title": "Knobble Hog Coral",
     "description": "",
     "preview": true,
-    "author": "",
+    "author": "AOM",
     "usdz": "",
     "source": "assets/models/knobble_hog_coral.glb",
     "poster": "assets/posters/poster_knobble_hog_coral.png"
@@ -205,10 +215,20 @@ export const modelData = [
     "title": "Knobble Hog Nearby",
     "description": "",
     "preview": true,
-    "author": "",
+    "author": "AOM",
     "usdz": "",
     "source": "assets/models/knobble_hog_nearby.glb",
     "poster": "assets/posters/poster_knobble_hog_nearby.png"
+  },
+  {
+    "id": "lonely_tower_coral",
+    "title": "Lonely Tower Coral",
+    "description": "",
+    "preview": true,
+    "author": "AOM",
+    "usdz": "",
+    "source": "assets/models/lonely_tower_coral.glb",
+    "poster": "assets/posters/poster_lonely_tower_coral.png"
   },
   {
     "id": "mask_FILE250630-121332F",
@@ -265,7 +285,7 @@ export const modelData = [
     "title": "Table",
     "description": "",
     "preview": true,
-    "author": "Paula",
+    "author": "AOM",
     "usdz": "",
     "source": "assets/models/table.glb",
     "poster": "assets/posters/poster_table.png"
@@ -275,7 +295,7 @@ export const modelData = [
     "title": "Tables near Buoy",
     "description": "",
     "preview": true,
-    "author": "",
+    "author": "AOM",
     "usdz": "",
     "source": "assets/models/tables_near_buoy.glb",
     "poster": "assets/posters/poster_tables_near_buoy.png"
