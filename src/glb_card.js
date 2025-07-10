@@ -2,9 +2,12 @@ export function generateGlbCard(params) {
     const posterAttr = params.poster ? `poster="${params.poster}"` : '';
     const usdzAttr = params.usdz ? `ar ios-src="${params.usdz}"` : '';
     const author = params.author ? `<span>by ${params.author}</span>` : '';
-    const genus = params.genus ? `<span>Genus: ${params.Genus}</span>` : '';
-    const species = params.species ? `<span>Species: ${params.species}</span>` : '';
     const preview = params.preview ? `` : 'reveal="manual"';
+
+    const fbxLink = params.fbx ? `<a href="${params.fbx}">FBX</a>` : '';
+
+    const genus = params.genus ? `<p>Genus: ${params.genus}</p>` : '';
+    const species = params.species ? `<p>Species: ${params.species}</p>` : '';
 
     return `
     <div class="card">
@@ -17,7 +20,6 @@ export function generateGlbCard(params) {
             ${usdzAttr}
             shadow-intensity="1"
             camera-controls
-            reveal="auto"
             auto-rotate>
         </model-viewer>
         <section class="attribution">
@@ -29,9 +31,14 @@ export function generateGlbCard(params) {
             ${params.title}
             </a></h1>
             ${author}
-            ${genus}
-            ${species}
         </span>
+        </section>
+        <section class="download-links">
+        ${fbxLink}
+        </section>
+        <section class="details">
+        ${genus}
+        ${species}
         </section>
     </div>
     `;

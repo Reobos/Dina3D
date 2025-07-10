@@ -1,0 +1,13 @@
+{
+  "id": "acropora_natalensis",
+  "title": "Acropora Natalensis",
+  "description": "",
+  "preview": true,
+  "author": "Komang",
+  "usdz": "",
+  "fbx": "assets/models/acropora_natalensis.fbx",
+  "source": "assets/models/acropora_natalensis.glb",
+  "poster": "assets/posters/poster_acropora_natalensis.png",
+  "genus": "Acropora",
+  "specia": "Natalensis"
+}

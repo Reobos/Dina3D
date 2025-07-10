@@ -1,0 +1,13 @@
+{
+  "id": "porites_lutea_anten",
+  "title": "Porites Lutea",
+  "description": "",
+  "preview": true,
+  "author": "Anten",
+  "usdz": "",
+  "fbx": "assets/models/porites_lutea_anten.fbx",
+  "source": "assets/models/porites_lutea_anten.glb",
+  "poster": "assets/posters/poster_porites_lutea_anten.png",
+  "genus": "Porites",
+  "species": "Lutea"
+}
