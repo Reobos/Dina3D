@@ -4,5 +4,8 @@
   "description": "",
   "preview": true,
   "author": "",
-  "usdz": ""
+  "usdz": "assets/models/bell.usdz",
+  "fbx": "",
+  "source": "assets/models/bell.glb",
+  "poster": "assets/posters/poster_bell.png"
 }

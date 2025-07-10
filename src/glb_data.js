@@ -36,7 +36,8 @@ export const modelData = [
     "description": "",
     "preview": true,
     "author": "",
-    "usdz": "",
+    "usdz": "assets/models/bell.usdz",
+    "fbx": "",
     "source": "assets/models/bell.glb",
     "poster": "assets/posters/poster_bell.png"
   },
@@ -266,7 +267,7 @@ export const modelData = [
     "description": "",
     "preview": true,
     "author": "",
-    "usdz": "",
+    "usdz": "assets/models/small_coral.usdz",
     "source": "assets/models/small_coral.glb",
     "poster": "assets/posters/poster_small_coral.png"
   },

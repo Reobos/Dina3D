@@ -12,6 +12,6 @@ export default `<header>
         </svg>
         <span class="github-link-text">Source</span>
     </a>
-    <h1 class="top-title">Dinacon 3D Scans</h1>
+    <h1 class="top-title">Photogrammetry from Les Village, Bali — Dinacon 2025</h1>
 </header>
 `;

@@ -2,6 +2,8 @@ export function generateGlbCard(params) {
     const posterAttr = params.poster ? `poster="${params.poster}"` : '';
     const usdzAttr = params.usdz ? `ar ios-src="${params.usdz}"` : '';
     const author = params.author ? `<span>by ${params.author}</span>` : '';
+    const genus = params.genus ? `<span>Genus: ${params.Genus}</span>` : '';
+    const species = params.species ? `<span>Species: ${params.species}</span>` : '';
     const preview = params.preview ? `` : 'reveal="manual"';
 
     return `
@@ -27,6 +29,8 @@ export function generateGlbCard(params) {
             ${params.title}
             </a></h1>
             ${author}
+            ${genus}
+            ${species}
         </span>
         </section>
     </div>
