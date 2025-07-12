@@ -1,45 +1,35 @@
+// glb_card.js
 export function generateGlbCard(params) {
-    const posterAttr = params.poster ? `poster="${params.poster}"` : '';
-    const usdzAttr = params.usdz ? `ar ios-src="${params.usdz}"` : '';
-    const author = params.author ? `<span>by ${params.author}</span>` : '';
-    const preview = params.preview ? `` : 'reveal="manual"';
+  // we’ll serialize the whole params object into data-params
+  const data = encodeURIComponent(JSON.stringify(params));
 
-    const fbxLink = params.fbx ? `<a href="${params.fbx}">FBX</a>` : '';
+  // thumbnail uses the poster (or a fallback image)
+  const thumb = params.poster
+    ? `<img class="card-thumb" src="${params.poster}" alt="${params.title}">`
+    : `<div class="card-thumb card-thumb--empty">${params.title}</div>`;
 
-    const genus = params.genus ? `<p>Genus: ${params.genus}</p>` : '';
-    const species = params.species ? `<p>Species: ${params.species}</p>` : '';
+  // metadata lines
+  const meta = [
+    params.author  && `<p>by ${params.author}</p>`,
+    params.genus   && `<p>Genus: ${params.genus}</p>`,
+    params.species && `<p>Species: ${params.species}</p>`,
+  ].filter(Boolean).join('');
 
-    return `
-    <div class="card">
-        <model-viewer
-            id="${params.id}"
-            src="${params.source}"
-            alt="${params.description}"
-            ${preview}
-            ${posterAttr}
-            ${usdzAttr}
-            shadow-intensity="1"
-            camera-controls
-            auto-rotate>
-        </model-viewer>
-        <section class="attribution">
-        <span>
-            <h1><a href="${params.source}" alt="download asset">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="40" fill="currentColor" viewBox="0 0 20 20" style="vertical-align:middle;margin-right:6px;">
-                <path d="M10 2a1 1 0 0 1 1 1v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L9 11.586V3a1 1 0 0 1 1-1zm-7 13a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/>
-            </svg>
-            ${params.title}
-            </a></h1>
-            ${author}
-        </span>
-        </section>
-        <section class="download-links">
-        ${fbxLink}
-        </section>
-        <section class="details">
-        ${genus}
-        ${species}
-        </section>
+  // download links
+  const links = [
+    `<a href="${params.source}" download>GLB</a>`,
+    params.usdz && `<a href="${params.usdz}" download>USDZ</a>`,
+    params.fbx  && `<a href="${params.fbx}"  download>FBX</a>`,
+  ].filter(Boolean).join(' ');
+
+  return `
+    <div class="card" data-params="${data}">
+      ${thumb}
+      <section class="card-meta">
+        <h2>${params.title}</h2>
+        ${meta}
+        <p class="card-links">${links}</p>
+      </section>
     </div>
-    `;
+  `;
 }
