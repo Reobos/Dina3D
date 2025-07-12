@@ -83,9 +83,9 @@ body {
 
 .card-container {
   display: flex;
-  flex-flow: row wrap;
-  padding: 0;
-  padding-top: 2.2em;
+  flex-wrap: wrap;
+  justify-content: space-between; /* spread them out */
+  gap: 1em;                        /* nice spacing */
 }
 
 .card {
@@ -93,11 +93,13 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
   border-radius: 6px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   min-width: 160px;
+  /* each card will take up about 25% of the row (4 per row) */
+  flex: 1 1 calc(20% - 1em);
+  max-width: calc(20% - 1em);
 }
 
 model-viewer {
