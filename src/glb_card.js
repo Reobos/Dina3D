@@ -9,6 +9,24 @@ export function generateGlbCard(params) {
     const genus = params.genus ? `<p>Genus: ${params.genus}</p>` : '';
     const species = params.species ? `<p>Species: ${params.species}</p>` : '';
 
+    const poster_placeholder = params.preview ? '' :
+    `<img class="img-poster" src="${params.poster}" slot="poster"></img>`;
+
+    const button_id = `${params.id}-button-load`
+    const reveal_button = params.preview ? '' : `<button id="${button_id}" class="reveal-button" slot="poster">Preview 3D Model</button>`;
+
+    const button_selector = `#${button_id}`;
+    const doc_selector = `#${params.id}`;
+    document.addEventListener('DOMContentLoaded', () => {
+        const button_elem = document.querySelector(button_selector);
+        button_elem.addEventListener('click',
+            () => {
+                button_elem.innerHTML = 'Loading...';
+                return document.querySelector(doc_selector).dismissPoster();
+            }
+        );
+    });
+
     return `
     <div class="card">
         <model-viewer
@@ -21,6 +39,8 @@ export function generateGlbCard(params) {
             shadow-intensity="1"
             camera-controls
             auto-rotate>
+            ${poster_placeholder}
+            ${reveal_button}
         </model-viewer>
         <section class="attribution">
         <span>

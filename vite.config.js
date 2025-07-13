@@ -5,5 +5,5 @@ export default defineConfig({
   build: {
     outDir: 'dist'
   },
-  assetsInclude: ['**/*.glb', '**/*.usdz', '**/*.png'],
+  assetsInclude: ['**/*.glb', '**/*.usdz', '**/*.png', '**/*.fbx'],
 })
