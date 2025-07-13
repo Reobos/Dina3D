@@ -180,3 +180,43 @@ header {
   font-weight: 700;
   text-shadow: 0 2px 8px rgba(66, 249, 185, 0.15);
 }
+
+/* demo zoom keyframes */
+@keyframes demo-zoom {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(2.5); }
+}
+
+/* when body.demo-mode is active… */
+body.demo-mode {
+  /* hide the cards & filter bar */
+  --hide: none;
+}
+
+/* ensure detail view is shown in demo */
+#detail-container {
+  display: none;          /* default hidden */
+}
+body.demo-mode #detail-container {
+  display: block !important;
+}
+/* -------------------------------------------- */
+/* hide filter + grid, show detail in demo-mode */
+/* -------------------------------------------- */
+body.demo-mode #filter-container,
+body.demo-mode #card-container {
+  display: none !important;
+}
+
+/* ----------------------------------------------- */
+/* full-width breakout helper (100vw wide)        */
+/* ----------------------------------------------- */
+.full-width {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -45vw;
+  margin-right: -45vw;
+  width: 90vw;
+  box-sizing: border-box;
+}
