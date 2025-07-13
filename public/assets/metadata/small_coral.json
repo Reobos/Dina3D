@@ -2,7 +2,7 @@
   "id": "small_coral",
   "title": "Small Coral",
   "description": "",
-  "preview": true,
+  "preview": false,
   "author": "",
   "usdz": "assets/models/small_coral.usdz",
   "source": "assets/models/small_coral.glb",

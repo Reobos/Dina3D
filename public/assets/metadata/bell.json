@@ -2,7 +2,7 @@
   "id": "bell",
   "title": "Bell",
   "description": "",
-  "preview": true,
+  "preview": false,
   "author": "",
   "usdz": "assets/models/bell.usdz",
   "fbx": "",
