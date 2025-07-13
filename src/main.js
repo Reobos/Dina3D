@@ -93,7 +93,7 @@ function animateDemo(ts) {
   // tweak these:
   const rotateSpeed = 0.2;   // radians per second
   const cycleTime   = 20;    // seconds for one full in/out
-  const dollyAmp    = 0.5;   // meters amplitude
+  const dollyAmp    = 2.0;   // meters amplitude
 
   // compute new angle & radius
   const theta  = demoBaseTheta + rotateSpeed * elapsed;

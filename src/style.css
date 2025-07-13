@@ -181,12 +181,6 @@ header {
   text-shadow: 0 2px 8px rgba(66, 249, 185, 0.15);
 }
 
-/* demo zoom keyframes */
-@keyframes demo-zoom {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(2.5); }
-}
-
 /* when body.demo-mode is active… */
 body.demo-mode {
   /* hide the cards & filter bar */
