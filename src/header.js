@@ -1,5 +1,7 @@
 
 export default `<header>
+
+    <h1 class="top-title">Photogrammetry from Les Village, Bali — Dinacon 2025</h1>
     <a href="https://github.com/Reobos/Dina3D" target="_blank" rel="noopener" class="github-link" aria-label="GitHub Repository">
         <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
@@ -12,6 +14,5 @@ export default `<header>
         </svg>
         <span class="github-link-text">Source</span>
     </a>
-    <h1 class="top-title">Photogrammetry from Les Village, Bali — Dinacon 2025</h1>
 </header>
 `;

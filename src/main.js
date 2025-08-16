@@ -8,10 +8,22 @@ import { modelData } from "./glb_data.js";
 
 let filteredData = [...modelData]; // the subset matching the search
 
+const description = `
+<div id="top-description">
+  <p>
+    Welcome to the repository for skillfully scanned sea corals and objects created during
+    <a href="https://2025.dinacon.org/">Dinacon 2025</a>!
+    <br>
+    Here is a map of where the scans were taken: <a href="https://mochuelo-kun.github.io/dinamap-les/">https://mochuelo-kun.github.io/dinamap-les/</a>
+    <br>
+  </p>
+</div>
+`;
+
 const app = document.querySelector("#app");
 app.innerHTML = `
   ${header}
-
+  ${description}
   <!-- Search/filter input -->
   <div id="filter-container" style="margin: 1em 0; text-align: center;">
     <input
